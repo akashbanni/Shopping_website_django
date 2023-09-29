@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% block title %}About us{% endblock title %}
+{% block body %}
+{% load static %}
+
+<section id="portfolio" class="portfolio">
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-lg-6">
+              <h1>About Shopy</h1>
+              <p>Welcome to Shopy, your one-stop destination for high-quality men's fashion. Our mission is to provide stylish and affordable clothing and accessories that help you express your unique style.</p>
+              <p>At Shopy, we believe that looking good shouldn't break the bank. That's why we carefully curate our collection to offer the latest trends without compromising on quality. Whether you're dressing up for a special occasion or just want to upgrade your everyday look, we've got you covered.</p>
+              <p>We are committed to providing exceptional customer service and a seamless shopping experience. If you have any questions or need assistance, our friendly customer support team is here to help.</p>
+          </div>
+          <div class="col-lg-6">
+              <img src="{% static '/Images/logo.png' %}" alt="About Us Image" class="img-fluid rounded-circle">
+          </div>
+      </div>
+  </div>
+</section>
+  {% endblock body %}

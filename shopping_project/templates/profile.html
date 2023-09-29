@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock title %}
+{% block body %}
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <h1 class="text-center">MyProfile</h1>
+
+        <table class='table table-dark table-hover table-stripped'>
+            <thead>
+                <tr>
+                    <th scope='col'>Order_Id</th>                    
+                    <th scope='col'>Name</th>                    
+                    <th scope='col'>Products</th>                    
+                    <th scope='col'>Amount_Paid</th>                    
+                    <th scope='col'>Payment_Status</th>                    
+                    <th scope='col'>Address</th>                   
+                    <th scope='col'>Phone_Number</th> 
+                    <th scope='col'>Delivery_Status</th> 
+                    <th scope='col'>Delivered</th>
+                    <th scope='col'>Date</th>   
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for i in items %}
+                <tr>
+                    <th scope='row'>{{i.oid}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.items_json}}</td>
+                    <td>{{i.amount}}</td>
+                    <td>{{i.paymentstatus}}</td>
+                    <td>{{i.address1}}</td>
+                    <td>{{i.phone}}</td>
+                    {% for j in status %}
+
+                    <td>{{j.update_desc}}</td>
+                    {% comment %} <td>{{j.delivered}}</td> {% endcomment %}
+                    {% if j.delivered %}
+                    <td><i class="fa-solid fa-circle-check" style="color: #619834;">&nbsp;</i>Delivered</td>
+                    {% else %}
+                    <td><i class="fa-solid fa-truck-fast" style="color: #d4af37;">&nbsp;</i>Delivery will reach you soon</td>
+                    {% endif%}
+                    <td>{{j.timestamp}}</td>
+
+                    {% endfor %}
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+        </table>                
+    </div>
+    </section><!-- End Portfolio Section -->
+{% endblock body %}

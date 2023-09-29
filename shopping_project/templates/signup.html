@@ -1,0 +1,78 @@
+{% extends 'base.html' %} 
+{% block title %}Signup{% endblock title %} 
+{% block content %}
+
+<div class="card bg-light p-5">
+
+    {% for message in messages %}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong class="text-center">{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      </button>
+    </div>
+
+    {% endfor %}
+    
+
+    <h1 class="text-dark">Signup</h1>
+  
+  <form action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    <br />
+
+    <label for="name">Full Name</label>
+    <div class="form-group">
+      <input
+        type="text"
+        {% comment %} autocomplete ="off" {% endcomment %}
+        class="form-control p-1"
+        id="name"
+        name="name"
+        required
+      />
+
+    <label for="email">Email</label>
+    <div class="form-group">
+      <input
+        type="email"
+        {% comment %} autocomplete ="off" {% endcomment %}
+        class="form-control p-1"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+    <label for="pass1">Password</label>
+    <div class="form-group">
+      <input
+        type="password"
+        autocomplete ="off"
+        class="form-control p-1"
+        id="pass1"
+        name="pass1"
+        required
+      />
+    </div>
+    <label for="pass2">Confirm Password</label>
+    <div class="form-group">
+      <input
+        type="password"
+        autocomplete ="off"
+        class="form-control p-1"
+        id="pass2"
+        name="pass2"
+        required
+      />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-dark">Register</button>
+
+    <br />
+    Already User? <a href="/auth/login/">Login</a>
+    <br />
+  </form>
+</div>
+
+{% endblock content %}
+
